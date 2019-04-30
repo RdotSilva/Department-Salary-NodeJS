@@ -76,5 +76,60 @@ fs.readFile('load_salaries.txt', 'utf8', (err, data) => {
 				}
 			}
 		}
+
+		// Department salary totals
+		let marketing = 0,
+			finance = 0,
+			humanResources = 0,
+			production = 0,
+			development = 0,
+			qualityManagement = 0,
+			sales = 0,
+			research = 0,
+			customerService = 0;
+
+		for (let i = 0; i < departmentWithSalaries.length; i++) {
+			const department = departmentWithSalaries[i][2];
+			switch (department) {
+				case "'d001'":
+					marketing =
+						marketing + parseInt(departmentWithSalaries[i][1]);
+				case "'d002'":
+					finance = finance + parseInt(departmentWithSalaries[i][1]);
+				case "'d003'":
+					humanResources =
+						humanResources + parseInt(departmentWithSalaries[i][1]);
+				case "'d004'":
+					production =
+						production + parseInt(departmentWithSalaries[i][1]);
+				case "'d005'":
+					development =
+						development + parseInt(departmentWithSalaries[i][1]);
+				case "'d006'":
+					qualityManagement =
+						qualityManagement +
+						parseInt(departmentWithSalaries[i][1]);
+				case "'d007'":
+					sales = sales + parseInt(departmentWithSalaries[i][1]);
+				case "'d008'":
+					research =
+						research + parseInt(departmentWithSalaries[i][1]);
+				case "'d009'":
+					customerService =
+						customerService +
+						parseInt(departmentWithSalaries[i][1]);
+			}
+		}
+		console.log(
+			'Marketing: $' + marketing,
+			'Finance: $' + finance,
+			'Human Resources: $' + humanResources,
+			'Production: $' + production,
+			'Development: $' + development,
+			'Quality Management: $' + qualityManagement,
+			'Sales: $' + sales,
+			'Research: $' + research,
+			'Customer Service: $' + customerService
+		);
 	});
 });
