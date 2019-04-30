@@ -43,7 +43,7 @@ fs.readFile('load_salaries.txt', 'utf8', (err, data) => {
 			// Loop through array and push items into a new array splitting at the ,
 			newDepartmentArray.push(departmentArray[i].split(','));
 		}
-		
+
 		// Represents employees who are currently working.
 		const currentlyEmployeed = "'9999-01-01')";
 		const currentEmployeesByDepartment = [];
@@ -52,4 +52,9 @@ fs.readFile('load_salaries.txt', 'utf8', (err, data) => {
 				currentEmployeesByDepartment.push(newDepartmentArray[i]);
 			}
 		}
+		// Clean up array (remove '\r\n' from arrays)
+		for (let i = 0; i < currentEmployeesByDepartment.length; i++) {
+			currentEmployeesByDepartment[i].pop();
+		}
+	});
 });
