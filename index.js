@@ -25,4 +25,13 @@ fs.readFile('load_salaries.txt', 'utf8', (err, data) => {
 	for (let i = 0; i < currentEmployees.length; i++) {
 		currentEmployees[i].pop();
 	}
+
+	var totalSalary = 0;
+	for (var i = 0; i < currentEmployees.length; i++) {
+		// Add the salary of each current employee together.
+		totalSalary += parseInt(currentEmployees[i][1]);
+	}
+
+	// Print total salaries paid out. This is only for CURRENT employees.
+	console.log('The total amount paid out by the company is: $' + totalSalary);
 });
