@@ -59,5 +59,22 @@ fs.readFile('load_salaries.txt', 'utf8', (err, data) => {
 
 		// Employees 10035-10039 removed
 		const extraEmployees = currentEmployeesByDepartment.splice(-5, 5);
+
+		// Compare both arrays and create new array with employee, salary, department.
+		const departmentWithSalaries = [];
+		for (let i = 0; i < currentEmployeesByDepartment.length; i++) {
+			if (currentEmployees[i] !== undefined) {
+				if (
+					currentEmployees[i][0] ===
+					currentEmployeesByDepartment[i][0]
+				) {
+					departmentWithSalaries.push([
+						currentEmployees[i][0],
+						currentEmployees[i][1],
+						currentEmployeesByDepartment[i][1]
+					]);
+				}
+			}
+		}
 	});
 });
