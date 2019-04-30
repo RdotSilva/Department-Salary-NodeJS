@@ -34,4 +34,8 @@ fs.readFile('load_salaries.txt', 'utf8', (err, data) => {
 
 	// Print total salaries paid out. This is only for CURRENT employees.
 	console.log('The total amount paid out by the company is: $' + totalSalary);
+
+	fs.readFile('load_dept_emp.txt', 'utf8', (err, data) => {
+		// Read data from file. Split the data at every ( and turn into an array.
+		var departmentArray = data.split('(');
 });
