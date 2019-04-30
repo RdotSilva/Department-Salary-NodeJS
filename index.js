@@ -37,10 +37,19 @@ fs.readFile('load_salaries.txt', 'utf8', (err, data) => {
 
 	fs.readFile('load_dept_emp.txt', 'utf8', (err, data) => {
 		// Read data from file. Split the data at every ( and turn into an array.
-		var departmentArray = data.split('(');
-		var newDepartmentArray = [];
-		for (var i = 0; i < departmentArray.length; i++) {
+		const departmentArray = data.split('(');
+		const newDepartmentArray = [];
+		for (let i = 0; i < departmentArray.length; i++) {
 			// Loop through array and push items into a new array splitting at the ,
 			newDepartmentArray.push(departmentArray[i].split(','));
+		}
+		
+		// Represents employees who are currently working.
+		const currentlyEmployeed = "'9999-01-01')";
+		const currentEmployeesByDepartment = [];
+		for (let i = 0; i < newDepartmentArray.length; i++) {
+			if (newDepartmentArray[i][3] === currentlyEmployeed) {
+				currentEmployeesByDepartment.push(newDepartmentArray[i]);
+			}
 		}
 });
