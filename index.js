@@ -5,8 +5,19 @@ fs.readFile('load_salaries.txt', 'utf8', (err, data) => {
 	const arrayData = data.split('(');
 
 	const splitArray = [];
-	for (var i = 0; i < arrayData.length; i++) {
+	for (let i = 0; i < arrayData.length; i++) {
 		// Loop through array and push items into a new array splitting at the ,
 		splitArray.push(arrayData[i].split(','));
+	}
+
+	// Represents employees who are currently working.
+	const currentlyEmployed = "'9999-01-01')";
+
+	const currentEmployees = [];
+	for (let i = 0; i < splitArray.length; i++) {
+		// Add employee to new array only if they are currently employed
+		if (splitArray[i][3] === currentlyEmployed) {
+			currentEmployees.push(splitArray[i]);
+		}
 	}
 });
