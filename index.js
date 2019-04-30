@@ -20,4 +20,9 @@ fs.readFile('load_salaries.txt', 'utf8', (err, data) => {
 			currentEmployees.push(splitArray[i]);
 		}
 	}
+
+	// Clean up array (remove '\r\n' from arrays)
+	for (let i = 0; i < currentEmployees.length; i++) {
+		currentEmployees[i].pop();
+	}
 });
