@@ -56,5 +56,8 @@ fs.readFile('load_salaries.txt', 'utf8', (err, data) => {
 		for (let i = 0; i < currentEmployeesByDepartment.length; i++) {
 			currentEmployeesByDepartment[i].pop();
 		}
+
+		// Employees 10035-10039 removed
+		const extraEmployees = currentEmployeesByDepartment.splice(-5, 5);
 	});
 });
