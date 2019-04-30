@@ -26,8 +26,8 @@ fs.readFile('load_salaries.txt', 'utf8', (err, data) => {
 		currentEmployees[i].pop();
 	}
 
-	var totalSalary = 0;
-	for (var i = 0; i < currentEmployees.length; i++) {
+	const totalSalary = 0;
+	for (let i = 0; i < currentEmployees.length; i++) {
 		// Add the salary of each current employee together.
 		totalSalary += parseInt(currentEmployees[i][1]);
 	}
